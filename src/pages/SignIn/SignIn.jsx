@@ -3,13 +3,15 @@ import React from "react";
 import lottieSignInData from "../../assets/lottie/signIn.json";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import SocialLogin from "../../layout/shared/socialLogin";
 import Swal from "sweetalert2";
 
 const SignIn = () => {
   const { signInUser } = useContext(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
+  const from = location.state || "/";
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -19,7 +21,7 @@ const SignIn = () => {
     signInUser(email, password)
       .then((res) => {
         console.log(res.user);
-        navigate("/");
+        navigate(from);
         Swal.fire({
           position: "top-end",
           icon: "success",

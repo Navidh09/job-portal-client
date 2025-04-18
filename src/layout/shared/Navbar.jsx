@@ -30,7 +30,13 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink to={"/"}>Item 3</NavLink>
+        <NavLink to={"/myApplications"}>My Applications</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/addJobs"}>Add Jobs</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/myPostedJobs"}>My Posted Jobs</NavLink>
       </li>
     </>
   );
@@ -78,12 +84,12 @@ const Navbar = () => {
             </button>
           </>
         ) : (
-          <>
+          <div className="space-x-3">
             <Link to={"/register"}>Register</Link>
             <Link to={"/signIn"} className="btn">
               Sign In
             </Link>
-          </>
+          </div>
         )}
       </div>
     </div>

@@ -13,7 +13,7 @@ const HotJobsCard = ({ job }) => {
     salaryRange,
   } = job;
   return (
-    <div className="card bg-base-100 shadow-sm">
+    <div className="card bg-base-300 shadow-xl">
       <div className="flex gap-2 items-center m-2">
         <figure>
           <img className="w-14" src={company_logo} alt="Logos" />
@@ -33,8 +33,11 @@ const HotJobsCard = ({ job }) => {
         </h2>
         <p>{description}</p>
         <div className="flex flex-wrap gap-2 text-center text-white font-semibold">
-          {requirements.map((skills) => (
-            <p className="border-1 rounded-md p-2 bg-gray-600 shadow-2xl">
+          {requirements.map((skills, idx) => (
+            <p
+              key={idx}
+              className="border-1 hover:bg-violet-900 rounded-md p-2 bg-gray-600 shadow-2xl"
+            >
               {skills}
             </p>
           ))}
